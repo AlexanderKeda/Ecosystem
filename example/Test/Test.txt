@@ -1,0 +1,5 @@
+Class:Ecosystem
+name:Test
+temperature:25
+humidity:75
+volumeOfWater:100000

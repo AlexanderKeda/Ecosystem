@@ -1,0 +1,13 @@
+Class:Animal
+nameOfSpecies:Cat
+count:500
+reproductionRate:3.0
+lifeTime:10
+weight:3.0
+humidityComf:75
+temperatureComf:25
+waterForDay:1
+foodForDay:1
+speed:30
+carnivorous:true
+herbivorous:false

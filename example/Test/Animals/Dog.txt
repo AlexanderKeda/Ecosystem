@@ -1,0 +1,13 @@
+Class:Animal
+nameOfSpecies:Dog
+count:1000
+reproductionRate:5.0
+lifeTime:10
+weight:20.0
+humidityComf:75
+temperatureComf:20
+waterForDay:2
+foodForDay:1
+speed:30
+carnivorous:true
+herbivorous:false

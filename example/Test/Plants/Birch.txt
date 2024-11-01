@@ -1,0 +1,11 @@
+Class:Plant
+nameOfSpecies:Birch
+count:2000
+reproductionRate:2.0
+lifeTime:150
+weight:300.0
+humidityComf:50
+temperatureComf:20
+waterForDay:30
+foodForDay:5
+eatablePart:0.0
