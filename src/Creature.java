@@ -1,8 +1,6 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.util.Objects;
 
-public abstract class LivingOrganism {
+
+public abstract class Creature {
     private final String nameOfSpecies;
     private int count;      //число представителей
     private double reproductionRate;        //число новых представителей на пару в год
@@ -12,23 +10,23 @@ public abstract class LivingOrganism {
     private int temperatureComf;        //комфортная температура в град цельсия
     private int waterForDay;            //потребление воды в день в литрах
     private int foodForDay;             //потребление питательных веществ в день в кг
-    private Ecosystem ecosystem;
+    private final Ecosystem ecosystem;
 
     public static boolean checkDate(String nameOfSpecies, int count, double reproductionRate, int lifeTime, double weight,
                                     int humidityComf, int temperatureComf, int waterForDay, int foodForDay) {
-        return !nameOfSpecies.matches(".*[^A-Za-z0-9 -].*") &&
+        return !nameOfSpecies.matches(".*[^A-Za-z0-9_-].*") &&
                 count > 0 &&
                 reproductionRate > 0 &&
-                lifeTime > 0 && lifeTime < 150 &&
+                lifeTime > 0 && lifeTime < 1000 &&
                 weight > 0 &&
-                humidityComf >= 0 && humidityComf <=100 &&
+                humidityComf >= 0 && humidityComf <= 100 &&
                 temperatureComf > -100 && temperatureComf < 100 &&
                 waterForDay > 0 && waterForDay < weight * 0.4 &&
                 foodForDay > 0 && foodForDay < weight * 0.4;
     }
 
-    public LivingOrganism(Ecosystem ecosystem, String nameOfSpecies, int count, double reproductionRate, int lifeTime, double weight,
-                          int humidityComf, int temperatureComf, int waterForDay, int foodForDay) {
+    public Creature(Ecosystem ecosystem, String nameOfSpecies, int count, double reproductionRate, int lifeTime, double weight,
+                    int humidityComf, int temperatureComf, int waterForDay, int foodForDay) {
         this.ecosystem = ecosystem;
         this.nameOfSpecies = nameOfSpecies;
         this.count = count;
@@ -43,11 +41,13 @@ public abstract class LivingOrganism {
 
     public abstract void saveToFile();
 
+    public abstract void deleteFile();
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        LivingOrganism that = (LivingOrganism) o;
+        Creature that = (Creature) o;
         return nameOfSpecies.equals(that.nameOfSpecies);
     }
 
